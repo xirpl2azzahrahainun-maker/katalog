@@ -72,7 +72,22 @@ class productController extends Controller
                 return redirect()->route('products.index')->with('success','produk sukses terupload');
 
     }
+/**
+     * Halaman Kelola Produk khusus Admin (Tabel)
+     */
+    public function adminIndex(Request $request)
+    {
+        $search = $request->input('search');
 
+        $products = produk::when($search, function ($query, $search) {
+            return $query->where('nama_produk', 'LIKE', "%{$search}%")
+                         ->orWhere('kategori_produk', 'LIKE', "%{$search}%");
+        })
+        ->latest()
+        ->get();
+
+        return view('products.admin', compact('products'));
+    }
     /**
      * Display the specified resource.
      */

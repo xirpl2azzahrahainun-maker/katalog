@@ -39,9 +39,10 @@
         <div class="container">
             <a class="navbar-brand fw-bold color" href="#">Katalog UMKM Siswa SMK</a>
             <div class="d-flex gap-2">
-                  <a href="{{ route('view.landing') }}" class="btn btn-outline-light btn-sm">Beranda</a>
-                <a href="{{ route('products.index') }}" class="btn btn-outline-light btn-sm">Katalog</a>
-                <a href="{{ route('products.create') }}" class="btn btn-success btn-sm">+ Tambah Produk</a>
+                 <a href="{{ url('/') }}" class="btn btn-outline-light btn-sm">Beranda</a>
+                  <a href="{{ route('products.index') }}" class="btn btn-outline-light btn-sm">Katalog</a>
+                  <a href="{{ route('products.admin') }}" class="btn btn-warning btn-sm text-dark fw-bold">Admin</a>
+
 
             </div>
         </div>

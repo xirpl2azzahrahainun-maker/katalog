@@ -3,8 +3,13 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\productController;
 
-// Halaman Utama / Redirect langsung ke katalog produk
-Route::get('/', [productController::class, 'index']);
+// 1. Beranda / Landing Page
+Route::get('/', function () {
+    return view('landing');
+})->name('landing');
 
-// Resource Route untuk CRUD Produk
+// 2. Halaman Admin (Kelola Produk dalam bentuk Tabel)
+Route::get('/admin/products', [productController::class, 'adminIndex'])->name('products.admin');
+
+// 3. Resource Route CRUD Produk
 Route::resource('products', productController::class);
